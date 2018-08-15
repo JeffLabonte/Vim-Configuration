@@ -15,6 +15,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'myhere/vim-nodejs-complete'
 
 " ----- Making Vim look good ------------------------------------------
 Plugin 'altercation/vim-colors-solarized'
@@ -83,7 +84,7 @@ Plugin 'jadercorrea/elixir_generator.vim'
 Plugin 'lambdatoast/elm.vim'
 
 " Autocomplete plugin
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-surround'
 Plugin 'Lokaltog/vim-easymotion'
@@ -214,3 +215,6 @@ noremap K :SuperMan <cword><CR>
 """""""""" Autocomplete settings -------
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
